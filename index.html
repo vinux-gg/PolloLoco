@@ -1,1 +1,751 @@
-<h1> Github pages PolloLoco </h1> 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El Gran Pollo Loco</title>
+
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+        }
+
+
+        /* =========================
+           BARRA DE NAVEGACIÓN
+        ========================== */
+
+        nav {
+            background-color: white;
+
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 60px;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e63900;
+        }
+
+
+        .menu {
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .menu a {
+            text-decoration: none;
+
+            color: #333;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .menu a:hover {
+            color: #e63900;
+        }
+
+
+        /* =========================
+           PORTADA
+        ========================== */
+
+        .hero {
+
+            height: 500px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+
+                url("https://images.unsplash.com/photo-1598514982901-ae627b6c6e44?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        .hero-content h1 {
+
+            font-size: 60px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero-content p {
+
+            font-size: 25px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================== */
+
+        .boton {
+
+            display: inline-block;
+
+            background-color: #e63900;
+
+            color: white;
+
+            padding: 15px 30px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .boton:hover {
+
+            background-color: #ff5500;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           BIENVENIDA
+        ========================== */
+
+        .bienvenida {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background-color: white;
+        }
+
+
+        .bienvenida h2 {
+
+            font-size: 35px;
+
+            color: #e63900;
+
+            margin-bottom: 20px;
+        }
+
+
+        .bienvenida p {
+
+            font-size: 18px;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MENÚ
+        ========================== */
+
+        .menu-section {
+
+            padding: 60px 8%;
+
+            text-align: center;
+        }
+
+
+        .menu-section h2 {
+
+            font-size: 35px;
+
+            margin-bottom: 40px;
+
+            color: #e63900;
+        }
+
+
+        .productos {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .producto {
+
+            background-color: white;
+
+            width: 280px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.12);
+
+            transition: 0.3s;
+        }
+
+
+        .producto:hover {
+
+            transform: translateY(-8px);
+        }
+
+
+        .producto h3 {
+
+            font-size: 24px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .producto p {
+
+            color: #666;
+
+            margin-bottom: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        .precio {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #e63900;
+        }
+
+
+        /* =========================
+           UBICACIÓN
+        ========================== */
+
+        .ubicacion {
+
+            background-color: white;
+
+            padding: 60px 20px;
+
+            text-align: center;
+        }
+
+
+        .ubicacion h2 {
+
+            font-size: 35px;
+
+            color: #e63900;
+
+            margin-bottom: 20px;
+        }
+
+
+        .ubicacion p {
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* MAPA */
+
+        .mapa {
+
+            max-width: 1000px;
+
+            margin: 30px auto;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .mapa iframe {
+
+            display: block;
+
+            width: 100%;
+
+            height: 400px;
+
+            border: 0;
+        }
+
+
+        /* =========================
+           CONTACTO
+        ========================== */
+
+        .contacto {
+
+            background-color: #222;
+
+            color: white;
+
+            padding: 50px 20px;
+
+            text-align: center;
+        }
+
+
+        .contacto h2 {
+
+            color: #ff4d00;
+
+            margin-bottom: 20px;
+        }
+
+
+        .contacto p {
+
+            margin: 10px;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           PIE DE PÁGINA
+        ========================== */
+
+        footer {
+
+            background-color: #111;
+
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+
+        /* =========================
+           DISEÑO PARA CELULAR
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            nav {
+
+                padding: 0 20px;
+
+                height: auto;
+
+                min-height: 70px;
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding-top: 15px;
+
+                padding-bottom: 15px;
+            }
+
+
+            .menu {
+
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .hero {
+
+                height: 450px;
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 40px;
+            }
+
+
+            .hero-content p {
+
+                font-size: 20px;
+            }
+
+
+            .mapa iframe {
+
+                height: 350px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BARRA DE NAVEGACIÓN
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+
+            🐔 El Gran Pollo Loco
+
+        </div>
+
+
+        <ul class="menu">
+
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#menu">Menú</a>
+            </li>
+
+            <li>
+                <a href="#ubicacion">Ubicación</a>
+            </li>
+
+            <li>
+                <a href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         PORTADA
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h1>
+                ¡Una locura de sabor!
+            </h1>
+
+
+            <p>
+                El Gran Pollo Loco
+            </p>
+
+
+            <a href="#menu" class="boton">
+
+                Ver nuestro menú
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BIENVENIDA
+    ========================== -->
+
+    <section class="bienvenida">
+
+        <h2>
+            Bienvenidos
+        </h2>
+
+
+        <p>
+
+            Disfruta del mejor pollo rostizado
+            y asado, preparado con ingredientes
+            de calidad y mucho sabor.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         MENÚ
+    ========================== -->
+
+    <section class="menu-section" id="menu">
+
+        <h2>
+            🍗 Nuestro Menú
+        </h2>
+
+
+        <div class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <h3>
+                    🍗 Pollo Entero
+                </h3>
+
+
+                <p>
+
+                    Delicioso pollo rostizado
+                    preparado al estilo de la casa.
+
+                </p>
+
+
+                <div class="precio">
+
+                    Q 80.00
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <h3>
+                    🍗 Medio Pollo
+                </h3>
+
+
+                <p>
+
+                    Una deliciosa porción
+                    de nuestro pollo rostizado.
+
+                </p>
+
+
+                <div class="precio">
+
+                    Q 45.00
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <h3>
+                    🍟 Combo Familiar
+                </h3>
+
+
+                <p>
+
+                    Pollo, papas y bebidas
+                    para compartir.
+
+                </p>
+
+
+                <div class="precio">
+
+                    Q 120.00
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         UBICACIÓN
+    ========================== -->
+
+    <section class="ubicacion" id="ubicacion">
+
+
+        <h2>
+            📍 Visítanos
+        </h2>
+
+
+        <p>
+
+            Encuentra nuestro local
+            y disfruta de una locura de sabor.
+
+        </p>
+
+
+        <!-- MAPA DE GOOGLE -->
+
+        <div class="mapa">
+
+            <iframe
+                src="https://www.google.com/maps?q=14.6561456,-90.4786285&output=embed"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+
+        <!-- BOTÓN PARA ABRIR GOOGLE MAPS -->
+
+        <a
+            href="https://maps.app.goo.gl/U1XZyGf9xhQfjwdH6"
+            target="_blank"
+            class="boton">
+
+            📍 Abrir en Google Maps
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section class="contacto" id="contacto">
+
+
+        <h2>
+            📞 Contáctanos
+        </h2>
+
+
+        <p>
+            Teléfono: 0000-0000
+        </p>
+
+
+        <p>
+            WhatsApp: 0000-0000
+        </p>
+
+
+        <p>
+            ¡Estamos para servirte!
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        © 2026 El Gran Pollo Loco
+        - Todos los derechos reservados.
+
+    </footer>
+
+
+</body>
+
+</html>
